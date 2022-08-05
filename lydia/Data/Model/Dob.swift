@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dob: Codable, Equatable {
+struct Dob: Decodable, Equatable {
     let date: String
     let age: Int
 }

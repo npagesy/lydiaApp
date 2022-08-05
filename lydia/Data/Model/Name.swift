@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Name: Codable, Equatable {
+struct Name: Decodable, Equatable {
     let title: String
     let first: String
     let last: String

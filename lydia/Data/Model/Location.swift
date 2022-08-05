@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Location
-struct Location: Codable, Equatable {
+struct Location: Decodable, Equatable {
     let street: Street
     let city: String
     let state: String
@@ -19,19 +19,19 @@ struct Location: Codable, Equatable {
 }
 
 // MARK: - Coordinates
-struct Coordinates: Codable, Equatable {
+struct Coordinates: Decodable, Equatable {
     let latitude: String
     let longitude: String
 }
 
 // MARK: - Street
-struct Street: Codable, Equatable {
+struct Street: Decodable, Equatable {
     let number: Int
     let name: String
 }
 
 // MARK: - Timezone
-struct Timezone: Codable, Equatable {
+struct Timezone: Decodable, Equatable {
     let offset: String
     let timezoneDescription: String
 }

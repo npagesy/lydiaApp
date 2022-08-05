@@ -24,6 +24,14 @@
 		E2551E14289A9DB80064C0F7 /* Dob.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E13289A9DB80064C0F7 /* Dob.swift */; };
 		E2551E16289A9DCF0064C0F7 /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E15289A9DCF0064C0F7 /* Id.swift */; };
 		E2551E18289AA5810064C0F7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E17289AA5810064C0F7 /* Contact.swift */; };
+		E2551E1A289BC5AD0064C0F7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E19289BC5AD0064C0F7 /* NetworkError.swift */; };
+		E2551E1D289BC8100064C0F7 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E1C289BC8100064C0F7 /* NetworkRouter.swift */; };
+		E2551E1F289BC8370064C0F7 /* UserServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E1E289BC8370064C0F7 /* UserServiceProvider.swift */; };
+		E2551E21289BC9200064C0F7 /* URLSessionServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E20289BC9200064C0F7 /* URLSessionServiceProvider.swift */; };
+		E2551E23289BCB1D0064C0F7 /* ServiceProviderProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E22289BCB1D0064C0F7 /* ServiceProviderProtocols.swift */; };
+		E2551E77289BD99D0064C0F7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2551E76289BD99D0064C0F7 /* UserRouter.swift */; };
+		E27AF4F8289BFE1000CDAAF1 /* NetworkRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27AF4F7289BFE1000CDAAF1 /* NetworkRouterTests.swift */; };
+		E2E86F36289D578B00E28EFB /* ContactMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E86F35289D578B00E28EFB /* ContactMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,16 +52,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E23099FF289D657B00043D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2551DD1289A9B220064C0F7 /* lydia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lydia.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2551DD4289A9B220064C0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2551DD6289A9B220064C0F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E2551DD8289A9B220064C0F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E2551DDB289A9B220064C0F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2551DDD289A9B220064C0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2551DE0289A9B220064C0F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2551DE2289A9B220064C0F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2551DE7289A9B220064C0F7 /* lydiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lydiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2551DEB289A9B220064C0F7 /* lydiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lydiaTests.swift; sourceTree = "<group>"; };
 		E2551DF1289A9B220064C0F7 /* lydiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lydiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2551DF5289A9B230064C0F7 /* lydiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lydiaUITests.swift; sourceTree = "<group>"; };
 		E2551DF7289A9B230064C0F7 /* lydiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lydiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -65,6 +71,14 @@
 		E2551E13289A9DB80064C0F7 /* Dob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dob.swift; sourceTree = "<group>"; };
 		E2551E15289A9DCF0064C0F7 /* Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
 		E2551E17289AA5810064C0F7 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		E2551E19289BC5AD0064C0F7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E2551E1C289BC8100064C0F7 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		E2551E1E289BC8370064C0F7 /* UserServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceProvider.swift; sourceTree = "<group>"; };
+		E2551E20289BC9200064C0F7 /* URLSessionServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceProvider.swift; sourceTree = "<group>"; };
+		E2551E22289BCB1D0064C0F7 /* ServiceProviderProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderProtocols.swift; sourceTree = "<group>"; };
+		E2551E76289BD99D0064C0F7 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		E27AF4F7289BFE1000CDAAF1 /* NetworkRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterTests.swift; sourceTree = "<group>"; };
+		E2E86F35289D578B00E28EFB /* ContactMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +140,7 @@
 		E2551DEA289A9B220064C0F7 /* lydiaTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2551DEB289A9B220064C0F7 /* lydiaTests.swift */,
+				E27AF4F7289BFE1000CDAAF1 /* NetworkRouterTests.swift */,
 			);
 			path = lydiaTests;
 			sourceTree = "<group>";
@@ -143,13 +157,12 @@
 		E2551E04289A9B570064C0F7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E2551DD4289A9B220064C0F7 /* AppDelegate.swift */,
 				E2551DD6289A9B220064C0F7 /* SceneDelegate.swift */,
 				E2551DD8289A9B220064C0F7 /* ViewController.swift */,
-				E2551DDA289A9B220064C0F7 /* Main.storyboard */,
 				E2551DDD289A9B220064C0F7 /* Assets.xcassets */,
 				E2551DDF289A9B220064C0F7 /* LaunchScreen.storyboard */,
 				E2551DE2289A9B220064C0F7 /* Info.plist */,
+				E23099FF289D657B00043D8D /* AppDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,7 +170,10 @@
 		E2551E05289A9B6B0064C0F7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E2551E19289BC5AD0064C0F7 /* NetworkError.swift */,
+				E2551E1C289BC8100064C0F7 /* NetworkRouter.swift */,
 				E2551E08289A9C210064C0F7 /* Model */,
+				E2551E1B289BC77A0064C0F7 /* ServiceProvider */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				E2551E17289AA5810064C0F7 /* Contact.swift */,
+				E2E86F35289D578B00E28EFB /* ContactMapper.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -189,6 +206,25 @@
 				E2551E09289A9C2C0064C0F7 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E2551E1B289BC77A0064C0F7 /* ServiceProvider */ = {
+			isa = PBXGroup;
+			children = (
+				E2551E22289BCB1D0064C0F7 /* ServiceProviderProtocols.swift */,
+				E2551E20289BC9200064C0F7 /* URLSessionServiceProvider.swift */,
+				E2E86F34289D56C800E28EFB /* User */,
+			);
+			path = ServiceProvider;
+			sourceTree = "<group>";
+		};
+		E2E86F34289D56C800E28EFB /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E2551E76289BD99D0064C0F7 /* UserRouter.swift */,
+				E2551E1E289BC8370064C0F7 /* UserServiceProvider.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +333,6 @@
 			files = (
 				E2551DE1289A9B220064C0F7 /* LaunchScreen.storyboard in Resources */,
 				E2551DDE289A9B220064C0F7 /* Assets.xcassets in Resources */,
-				E2551DDC289A9B220064C0F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,14 +358,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2551E0A289A9C2C0064C0F7 /* User.swift in Sources */,
+				E2551E21289BC9200064C0F7 /* URLSessionServiceProvider.swift in Sources */,
 				E2551DD9289A9B220064C0F7 /* ViewController.swift in Sources */,
-				E2551DD5289A9B220064C0F7 /* AppDelegate.swift in Sources */,
+				E2551E1D289BC8100064C0F7 /* NetworkRouter.swift in Sources */,
 				E2551E0C289A9C6D0064C0F7 /* Login.swift in Sources */,
 				E2551E12289A9D9B0064C0F7 /* Picture.swift in Sources */,
 				E2551E14289A9DB80064C0F7 /* Dob.swift in Sources */,
 				E2551E18289AA5810064C0F7 /* Contact.swift in Sources */,
+				E2309A00289D657B00043D8D /* AppDelegate.swift in Sources */,
 				E2551E0E289A9D5B0064C0F7 /* Location.swift in Sources */,
+				E2551E23289BCB1D0064C0F7 /* ServiceProviderProtocols.swift in Sources */,
+				E2551E1F289BC8370064C0F7 /* UserServiceProvider.swift in Sources */,
 				E2551E10289A9D7C0064C0F7 /* Name.swift in Sources */,
+				E2551E1A289BC5AD0064C0F7 /* NetworkError.swift in Sources */,
+				E2551E77289BD99D0064C0F7 /* UserRouter.swift in Sources */,
 				E2551E16289A9DCF0064C0F7 /* Id.swift in Sources */,
 				E2551DD7289A9B220064C0F7 /* SceneDelegate.swift in Sources */,
 			);
@@ -340,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2551DEC289A9B220064C0F7 /* lydiaTests.swift in Sources */,
+				E27AF4F8289BFE1000CDAAF1 /* NetworkRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,14 +410,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E2551DDA289A9B220064C0F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2551DDB289A9B220064C0F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E2551DDF289A9B220064C0F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -507,13 +540,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = lydia/Info.plist;
+				INFOPLIST_FILE = lydia/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -524,6 +559,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.npagesy.lydia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -535,13 +571,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = lydia/Info.plist;
+				INFOPLIST_FILE = lydia/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -552,6 +590,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.npagesy.lydia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
