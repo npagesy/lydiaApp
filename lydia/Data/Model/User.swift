@@ -7,8 +7,20 @@
 
 import Foundation
 
+struct Users: Decodable {
+    let results: [User]
+    let info: Info
+}
+
+struct Info: Codable, Equatable {
+    let seed: String
+    let results: Int
+    let page: Int
+    let version: String
+}
+
 struct User: Decodable, Equatable {
-    let gender: String
+    let gender: Gender
     let name: Name
     let location: Location
     let email: String
@@ -20,4 +32,9 @@ struct User: Decodable, Equatable {
     let id: Id
     let picture: Picture
     let nat: String
+}
+
+enum Gender: String, Decodable, Equatable {
+    case female = "female"
+    case male = "male"
 }

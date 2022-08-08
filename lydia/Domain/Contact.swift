@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum Gender: String, Codable {
-    case female
-    case male
-}
-
 class Contact {
     let id: String
     let gender: Gender?
@@ -26,7 +21,7 @@ class Contact {
     
     init(_ user: User) {
         id = user.login.uuid
-        gender = Gender(rawValue: user.gender)
+        gender = Gender(rawValue: user.gender.rawValue)
         title = user.name.title
         firstName = user.name.first
         lastName = user.name.last
@@ -39,10 +34,10 @@ class Contact {
 }
 
 class Informations {
-    var username: String
+    let username: String
     let registeredDate: String
     let registeredAge: Int
-    var pictures: [String]
+    let pictures: [String]
     
     init(_ user: User) {
         username = user.login.username
@@ -53,13 +48,36 @@ class Informations {
 }
 
 class Details {
-    var email: String
-    var phone: String
-    var cellPhone: String
+    let email: String
+    let phone: String
+    let cellPhone: String
+    let address: Address
     
     init(_ user: User) {
         email = user.email
         phone = user.phone
         cellPhone = user.cell
+        address = Address(user.location)
+    }
+}
+
+class Address {
+    let streetNumber: Int
+    let streetName: String
+    let city: String
+    let state: String
+    let country: String
+    
+    let latitude: String
+    let longitude: String
+    
+    init(_ location: Location) {
+        streetNumber = location.street.number
+        streetName = location.street.name
+        city = location.city
+        state = location.state
+        country = location.country
+        latitude = location.coordinates.latitude
+        longitude = location.coordinates.longitude
     }
 }
