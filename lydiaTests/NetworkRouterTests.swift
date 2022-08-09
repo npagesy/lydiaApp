@@ -10,12 +10,11 @@ import XCTest
 @testable import lydia
 
 class NetworkRouterTests: XCTestCase {
-
     func test_buildUrlRequest() throws {
         // Given
         let usersCount = 10
         let page = 1
-        let router = UserRouter.getUsers(count: usersCount, page: 1)
+        let router = UserRouter.getUsers(count: usersCount, page: page)
         
         // When
         let request = try router.asURLRequest().url?.absoluteString

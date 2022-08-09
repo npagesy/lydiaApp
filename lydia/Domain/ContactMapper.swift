@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol ContactMapperProtocol {
-    func transformUsersToContacts(_ user: [User]) -> [Contact]
-}
-
-class ContactMapper: ContactMapperProtocol {
+class ContactMapper {
     func transformUsersToContacts(_ users: [User]) -> [Contact] {
         users.map { Contact($0) }
     }

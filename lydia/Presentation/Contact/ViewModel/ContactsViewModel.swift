@@ -25,10 +25,10 @@ final class ContactsViewModel: ObservableObject {
     
     private let webService: ServiceProviderProtocol
     private var subscription = Set<AnyCancellable>()
-    private let mapper: ContactMapperProtocol
+    private let mapper: ContactMapper!
     
     init(webService: ServiceProviderProtocol = UserServiceProvider(),
-        mapper: ContactMapperProtocol = ContactMapper()) {
+         mapper: ContactMapper = ContactMapper()) {
         self.webService = webService
         self.mapper = mapper
         getContacts()
