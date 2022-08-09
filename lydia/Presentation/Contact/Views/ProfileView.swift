@@ -8,21 +8,10 @@
 import Combine
 import UIKit
 
-//public final class ImageLoader {
-//    public static let shared = ImageLoader()
-//    
-//    private let cache: ImageCa
-//}
-
-//protocol ProfileViewProtocol {
-//    func setContact(_ contact: Contact)
-//}
-
 class ProfileView: UIStackView {
 
     private var avatar: UIImageView!
     private var userName: UILabel!
-    private var age: UILabel!
     private var stackView: UIStackView!
     
     private var cancellable: AnyCancellable?
@@ -42,20 +31,26 @@ class ProfileView: UIStackView {
         setupUI()
     }
     
-    func configure(with contact: Contact, axis: NSLayoutConstraint.Axis = .horizontal) {
+    func configure(with contact: Contact,
+                   userNameTextAlignment: NSTextAlignment = .left,
+                   axis: NSLayoutConstraint.Axis = .horizontal) {
         self.axis = axis
-        userName.text = contact.loginInformations.username
-        age.text = contact.loginInformations.registeredAge.description
+        userName.text = "\(contact.loginInformations.username), \(contact.age.description) ans"
+        userName.textAlignment = userNameTextAlignment
+        if userNameTextAlignment == .center {
+            userName.textColor = .darkTextColor
+        }
         cancellable = loadImage(for: contact).sink { [weak self] image in
             self?.showImage(image: image)
         }
     }
 }
 
-extension ProfileView {
-    private func setupUI() {
+// MARK: - Private function
+private extension ProfileView {
+    func setupUI() {
         axis = .horizontal
-        alignment = .leading
+        alignment = .center
         spacing = 16
         
         avatar = UIImageView()
@@ -74,27 +69,26 @@ extension ProfileView {
         userName = UILabel()
         userName.font = .boldSystemFont(ofSize: 14)
         userName.numberOfLines = 0
+        userName.textColor = .textColor
         userName.lineBreakMode = .byWordWrapping
-        
-        age = UILabel()
-        age.font = .systemFont(ofSize: 14)
-        age.numberOfLines = 1
-        age.lineBreakMode = .byTruncatingTail
-        
+        addArrangedSubview(userName)
+
         stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 16
+        stackView.axis = .horizontal
+        stackView.spacing = 8
         stackView.addArrangedSubview(userName)
-        stackView.addArrangedSubview(age)
-        
+
         addArrangedSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0)
+        ])
     }
     
     private func loadImage(for contact: Contact) -> AnyPublisher<UIImage?, Never> {
-        Just(contact.loginInformations.pictures.first)
+        Just(contact.loginInformations.picture)
             .flatMap { image -> AnyPublisher<UIImage?, Never> in
-                let url = URL(string: contact.loginInformations.pictures.first!)!
+                guard let url = URL(string: contact.loginInformations.picture) else { return Just(Asset.about).eraseToAnyPublisher() }
                 return ImageLoader.shared.loadImage(from: url)
             }
             .eraseToAnyPublisher()

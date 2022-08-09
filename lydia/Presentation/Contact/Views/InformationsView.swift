@@ -11,14 +11,15 @@ import MapKit
 class InformationsView: UIStackView {
 
     private var informationStackView: UIStackView!
-    private var name: UILabel!
-    private var phone: UILabel!
-    private var cellPhone: UILabel!
-    private var email: UILabel!
+    private var name: InfoDetailStackView!
+    private var phone: InfoDetailStackView!
+    private var cellPhone: InfoDetailStackView!
+    private var email: InfoDetailStackView!
     
     private var mapView: MKMapView!
     
     private var contactDetails: Details?
+    private var gender: Gender?
     private var identity: String?
     
     override init(frame: CGRect) {
@@ -31,38 +32,38 @@ class InformationsView: UIStackView {
         setupUI()
     }
     
-    init(with contactDetails: Details, identity: String) {
+    init(with contactDetails: Details, identity: String, gender: Gender?) {
         super.init(frame: .zero)
         self.contactDetails = contactDetails
         self.identity = identity
+        self.gender = gender
         setupUI()
     }
 }
 
-extension InformationsView {
-    private func setupUI() {
+// MARK: - Private method
+private extension InformationsView {
+    func setupUI() {
         backgroundColor = .backgroundColor
         layer.cornerRadius = 15.0
         
         axis = .vertical
         spacing = 16
+        alignment = .leading
         
         informationStackView = UIStackView()
         informationStackView.axis = .vertical
+        informationStackView.spacing = 8
         informationStackView.translatesAutoresizingMaskIntoConstraints = false
         addArrangedSubview(informationStackView)
-        
-        name = UILabel()
-        name.text = identity
-        
-        phone = UILabel()
-        phone.text = contactDetails?.phone
-        
-        cellPhone = UILabel()
-        cellPhone.text = contactDetails?.cellPhone
-        
-        email = UILabel()
-        email.text = contactDetails?.email
+        NSLayoutConstraint.activate([
+            informationStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16.0)
+        ])
+    
+        name = InfoDetailStackView(.identity, infoString: identity, gender: gender)
+        email = InfoDetailStackView(.email, infoString: contactDetails?.email)
+        phone = InfoDetailStackView(.phone, infoString: contactDetails?.phone)
+        cellPhone = InfoDetailStackView(.cellPhone, infoString: contactDetails?.cellPhone)
         
         informationStackView.addArrangedSubview(name)
         informationStackView.addArrangedSubview(email)

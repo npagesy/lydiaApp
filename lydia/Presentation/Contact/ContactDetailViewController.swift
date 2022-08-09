@@ -34,18 +34,18 @@ extension ContactDetailViewController {
         guard let contact = contact else { return }
         
         let profileView = ProfileView()
-        profileView.configure(with: contact, axis: .vertical)
+        profileView.configure(with: contact, userNameTextAlignment: .center, axis: .vertical)
         profileView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileView)
         
         NSLayoutConstraint.activate([
             profileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.0),
-            profileView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            profileView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            profileView.heightAnchor.constraint(equalToConstant: 100.0)
+            profileView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
+            profileView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
+            profileView.heightAnchor.constraint(equalToConstant: 150.0)
         ])
         
-        let informations = InformationsView(with: contact.contactDetails, identity: contact.getidentity())
+        let informations = InformationsView(with: contact.contactDetails, identity: contact.getidentity(), gender: contact.gender)
         informations.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(informations)
         

@@ -33,7 +33,7 @@ class Contact {
     }
     
     func getidentity() -> String {
-        "\(gender?.rawValue ?? "") \(lastName) \(firstName)"
+        "\(lastName) \(firstName)"
     }
 }
 
@@ -41,13 +41,13 @@ class Informations {
     let username: String
     let registeredDate: String
     let registeredAge: Int
-    let pictures: [String]
+    let picture: String
     
     init(_ user: User) {
         username = user.login.username
         registeredDate = user.registered.date
         registeredAge = user.registered.age
-        pictures = [user.picture.large, user.picture.medium, user.picture.thumbnail]
+        picture = user.picture.large
     }
 }
 
@@ -69,8 +69,7 @@ class Address {
     let streetNumber: Int
     let streetName: String
     let city: String
-    let state: String
-    let country: String
+    let postCode: String
     
     let latitude: String
     let longitude: String
@@ -79,8 +78,14 @@ class Address {
         streetNumber = location.street.number
         streetName = location.street.name
         city = location.city
-        state = location.state
-        country = location.country
+        
+        switch location.postcode {
+        case .integer(let codeInt):
+            postCode = "\(codeInt)"
+        case .string(let codeString):
+            postCode = codeString
+        }
+        
         latitude = location.coordinates.latitude
         longitude = location.coordinates.longitude
     }

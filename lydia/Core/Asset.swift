@@ -14,6 +14,4 @@ enum Asset {
     static let mail = UIImage(named: "mail")
     static let male = UIImage(named: "male")
     static let phone = UIImage(named: "phone")
-    static let refresh = UIImage(named: "refresh")
-    static let search = UIImage(named: "search")
 }
