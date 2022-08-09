@@ -14,7 +14,8 @@ class NetworkRouterTests: XCTestCase {
     func test_buildUrlRequest() throws {
         // Given
         let usersCount = 10
-        let router = UserRouter.getUsers(count: usersCount)
+        let page = 1
+        let router = UserRouter.getUsers(count: usersCount, page: 1)
         
         // When
         let request = try router.asURLRequest().url?.absoluteString
@@ -24,6 +25,8 @@ class NetworkRouterTests: XCTestCase {
         XCTAssertEqual(router.method, "GET")
         XCTAssertEqual(router.queryItems.first?.name, "results")
         XCTAssertEqual(router.queryItems.first?.value, "\(usersCount)")
-        XCTAssertEqual(request, "https://randomuser.me/api/?results=\(usersCount)")
+        XCTAssertEqual(router.queryItems.last?.name, "page")
+        XCTAssertEqual(router.queryItems.last?.value, "\(page)")
+        XCTAssertEqual(request, "https://randomuser.me/api/?results=\(usersCount)&page=\(page)")
     }
 }

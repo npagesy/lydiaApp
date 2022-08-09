@@ -31,6 +31,10 @@ class Contact {
         loginInformations = Informations(user)
         contactDetails = Details(user)
     }
+    
+    func getidentity() -> String {
+        "\(gender?.rawValue ?? "") \(lastName) \(firstName)"
+    }
 }
 
 class Informations {

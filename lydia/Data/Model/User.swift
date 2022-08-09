@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Users: Decodable {
+struct Users: Codable {
     let results: [User]
     let info: Info
 }
@@ -19,7 +19,7 @@ struct Info: Codable, Equatable {
     let version: String
 }
 
-struct User: Decodable, Equatable {
+struct User: Codable, Equatable {
     let gender: Gender
     let name: Name
     let location: Location
@@ -34,7 +34,7 @@ struct User: Decodable, Equatable {
     let nat: String
 }
 
-enum Gender: String, Decodable, Equatable {
+enum Gender: String, Codable, Equatable {
     case female = "female"
     case male = "male"
 }
